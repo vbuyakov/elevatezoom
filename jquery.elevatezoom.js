@@ -116,8 +116,8 @@ if ( typeof Object.create !== 'function' ) {
 			startZoom: function( ) {
 			    var self = this;
 				// Init variables
-                var lensHeight = 0;
-                var lensWidth = 0;
+                var lensHeight =0;
+                var lensWidth =0 ;
 			    //get dimensions of the non zoomed image
 				self.nzWidth = self.$elem.width();
 				self.nzHeight = self.$elem.height();
@@ -568,7 +568,8 @@ if ( typeof Object.create !== 'function' ) {
 				}   
 			},
 			setPosition: function(e) {
-      
+                var lensHeight =0;
+                var lensWidth =0 ;
 				var self = this;
         
         if(!self.options.zoomEnabled){return false;}
@@ -1384,7 +1385,7 @@ if ( typeof Object.create !== 'function' ) {
 
 			},
 			doneCallback: function(){
-
+                var lensWidth ,lensHeight;
 				var self = this;
 				if(self.options.loadingIcon){
 					self.spinner.hide();     
