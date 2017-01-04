@@ -65,7 +65,7 @@ if ( typeof Object.create !== 'function' ) {
 
 
 				//Create the image swap from the gallery 
-				$('#'+self.options.gallery + ' a').click( function(e) { 
+				$(self.options.galleryEl).find('a').add('#'+self.options.gallery + ' a').click( function(e) {
 
 					//Set a class on the currently active gallery image
 					if(self.options.galleryActiveClass){
@@ -186,7 +186,8 @@ if ( typeof Object.create !== 'function' ) {
 				//lens style for window zoom
 				if(self.options.zoomType == "window") {
 
-
+					var lensHeight = 0;
+                    var lensWidth = 0;
 					// adjust images less than the window height
 
 					if(self.nzHeight < self.options.zoomWindowWidth/self.widthRatio){
@@ -582,6 +583,8 @@ if ( typeof Object.create !== 'function' ) {
 				}
 				//set responsive       
 				//will checking if the image needs changing before running this code work faster?
+                var lensHeight = 0;
+                var lensWidth = 0;
 				if(self.options.responsive && !self.options.scrollZoom){
 					if(self.options.showLens){ 
 						if(self.nzHeight < self.options.zoomWindowWidth/self.widthRatio){
@@ -1743,7 +1746,7 @@ if ( typeof Object.create !== 'function' ) {
 			maxZoomLevel: false,
 			easing: false,
 			easingAmount: 12,
-			lensSize: 200,
+			lensSize: 400,
 			zoomWindowWidth: 400,
 			zoomWindowHeight: 400,
 			zoomWindowOffetx: 0,
@@ -1773,6 +1776,7 @@ if ( typeof Object.create !== 'function' ) {
 			tintColour: "#333", //default tint color, can be anything, red, #ccc, rgb(0,0,0)
 			tintOpacity: 0.4, //opacity of the tint
 			gallery: false,
+            galleryEl : null, // Use jQuery element vs ID selector
 			galleryActiveClass: "zoomGalleryActive",
 			imageCrossfade: false,
 			constrainType: false,  //width or height
