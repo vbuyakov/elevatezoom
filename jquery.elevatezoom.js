@@ -114,8 +114,11 @@ if ( typeof Object.create !== 'function' ) {
 			},
 
 			startZoom: function( ) {
-				var self = this;
-				//get dimensions of the non zoomed image
+			    var self = this;
+				// Init variables
+                var lensHeight = 0;
+                var lensWidth = 0;
+			    //get dimensions of the non zoomed image
 				self.nzWidth = self.$elem.width();
 				self.nzHeight = self.$elem.height();
 
@@ -186,8 +189,7 @@ if ( typeof Object.create !== 'function' ) {
 				//lens style for window zoom
 				if(self.options.zoomType == "window") {
 
-					var lensHeight = 0;
-                    var lensWidth = 0;
+
 					// adjust images less than the window height
 
 					if(self.nzHeight < self.options.zoomWindowWidth/self.widthRatio){
@@ -583,8 +585,7 @@ if ( typeof Object.create !== 'function' ) {
 				}
 				//set responsive       
 				//will checking if the image needs changing before running this code work faster?
-                var lensHeight = 0;
-                var lensWidth = 0;
+
 				if(self.options.responsive && !self.options.scrollZoom){
 					if(self.options.showLens){ 
 						if(self.nzHeight < self.options.zoomWindowWidth/self.widthRatio){
